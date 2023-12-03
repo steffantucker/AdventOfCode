@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/steffantucker/AdventOfCode/2023/day1"
+	"github.com/steffantucker/AdventOfCode/2023/day2"
 	"github.com/steffantucker/AdventOfCode/2023/utils"
 )
 
@@ -15,7 +16,7 @@ func main() {
 	fmt.Println(wd)
 	dayFuncs := []func(){
 		day1.Run,
-		// day2.Run,
+		day2.Run,
 		// day3.Run,
 		// day4.Run,
 		// day5.Run,

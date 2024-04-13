@@ -1,9 +1,6 @@
-use std::fs;
 
 fn main() {
-    let path = std::env::current_dir().unwrap();
-    println!("{}", path.display());
-    let input = fs::read_to_string("input").unwrap();
+    let input = aoc23::get_or_create_input(1);
     println!("part 1 {}", parse(input.clone(), false));
     println!("part 2 {}", parse(input.clone(), true));
 }

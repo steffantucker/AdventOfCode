@@ -144,7 +144,7 @@ impl PartNumber {
 }
 
 fn main() {
-    let input = fs::read_to_string("input").unwrap();
+    let input = aoc23::get_or_create_input(3);
     println!("part 1 {}", part1(input.clone()));
     println!("part 2 {}", part2(input));
 }

@@ -8,12 +8,16 @@ pub fn get_or_create_input(day: usize) -> String {
     }
     let session_key = env::var("adventofcodecookie").expect("AoC env var not set/found");
     let body = minreq::get(format!("https://adventofcode.com/2023/day/{}/input", day))
-        .with_header("Cookie", format!("session={}",session_key))
+        .with_header("Cookie", format!("session={}", session_key))
         .send()
         .expect("problem GETting");
     if body.status_code == 200 {
         let input = body.as_str().expect("body not string??");
         let mkdir = fs::create_dir("inputs");
+        println!("mkdir err: {}", mkdir.err().unwrap());
+        if !mkdir.err().unwrap().to_string().contains("exits") {
+            panic!("unexpected create directory error: {}", err);
+        }
         let _ = fs::write(path.as_str(), input).expect("error writing to file");
         return input.to_string();
     } else {

@@ -1,18 +1,17 @@
-use std::fs;
-
 fn main() {
-    let input = fs::read_to_string("input").unwrap();
-    println!("part 1 {}", part1(input.clone()));
-    println!("part 2 {}", part2(input.clone()));
-}
-
-fn part1(lines: String) -> u32 {
-    let mut sum: u32 = 0;
-    let cards: Vec<(&str, &str)> = lines.
+    let input = aoc23::get_or_create_input(4);
+    let cards: Vec<(&str, &str)> = input.
         lines().
         map(|l| l.split_once(":").unwrap().1).
         map(|l| l.trim().split_once(" | ").unwrap()).
         collect();
+    println!("part 1 {}", part1(cards.clone()));
+    println!("part 2 {}", part2(cards.clone()));
+}
+
+fn part1(cards: Vec<(&str, &str)>) -> u32 {
+    let mut sum: u32 = 0;
+
     for (a, b) in cards {
         let matches = compute_matches(a, b) as i32 - 1;
         if matches >= 0 {
@@ -34,12 +33,7 @@ fn compute_matches(a: &str, b: &str) -> u32 {
     matches
 }
 
-fn part2(lines: String) -> u32 {
-    let cards: Vec<(&str, &str)> = lines.
-        lines().
-        map(|l| l.split_once(":").unwrap().1).
-        map(|l| l.trim().split_once(" | ").unwrap()).
-        collect();
+fn part2(cards: Vec<(&str, &str)>) -> u32 {
     let mut card_counts = vec![1; cards.len()];
     for i in 1..=cards.len() {
         let (a, b) = cards[i-1];

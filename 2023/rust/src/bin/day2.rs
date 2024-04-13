@@ -1,7 +1,7 @@
-use std::{fs, collections::HashMap, cmp};
+use std::{cmp, collections::HashMap};
 
 fn main() {
-    let input = fs::read_to_string("input").unwrap();
+    let input = aoc23::get_or_create_input(2);
     println!("part 1 {}", part1(input.clone()));
     println!("part 2 {}", part2(input.clone()))
 }

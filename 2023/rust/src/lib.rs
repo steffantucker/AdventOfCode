@@ -14,8 +14,8 @@ pub fn get_or_create_input(day: usize) -> String {
     if body.status_code == 200 {
         let input = body.as_str().expect("body not string??");
         let mkdir = fs::create_dir("inputs");
-        println!("mkdir err: {}", mkdir.err().unwrap());
-        if !mkdir.err().unwrap().to_string().contains("exits") {
+        let err = mkdir.err().unwrap();
+        if err.to_string().contains("exits") {
             panic!("unexpected create directory error: {}", err);
         }
         let _ = fs::write(path.as_str(), input).expect("error writing to file");

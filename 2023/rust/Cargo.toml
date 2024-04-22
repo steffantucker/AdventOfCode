@@ -8,3 +8,4 @@ edition = "2021"
 [dependencies]
 itertools = "0.12.1"
 minreq = {version="2.11.1", features=["https-native"]}
+regex = "1.10.4"

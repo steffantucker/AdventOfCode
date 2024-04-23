@@ -6,6 +6,8 @@ edition = "2021"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+anyhow = "1.0.82"
 itertools = "0.12.1"
 minreq = {version="2.11.1", features=["https-native"]}
+num-integer = "0.1.46"
 regex = "1.10.4"

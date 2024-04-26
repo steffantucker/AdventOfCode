@@ -1,3 +1,8 @@
+//! Day 1 the calibration document for the trebuchet we were loaded into had extra data.
+//!
+//! Part 1 had us grab the first and last roman numeral from input
+//!
+//! Part 2 had us grab the first and last roman numeral _or_ spelled out number.
 
 fn main() {
     let input = aoc23::get_or_create_input(1);

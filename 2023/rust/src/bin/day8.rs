@@ -1,3 +1,6 @@
+//! While travelling we're caught in a sandstorm! We pull out our maps which is a list of nodes and
+//! how they connect.
+
 use std::collections::HashMap;
 use std::str::FromStr;
 use anyhow::anyhow;
@@ -9,6 +12,10 @@ fn main() {
     println!("part 2: {}", part2(&input));
 }
 
+/// We assume we're at location `AAA` and have to get to `ZZZ`
+///
+/// # Output
+/// How many steps to get from `AAA` to `ZZZ`
 fn part1(input: &String) -> usize {
     let m: Map = input.parse().expect("can't parse input");
     m.steps(Node::START, Node::is_end)
@@ -136,6 +143,12 @@ impl FromStr for Map {
     }
 }
 
+/// Turns out the map is written for ghosts! Ghosts start at every location ending with `A` and end at
+/// a location ending with `Z`. All at the same time.
+///
+/// # Output
+/// Still interesting how many steps to get from an `A` location to a `Z`, but now it's the LCM of all
+/// `A` to `Z` locations.
 fn part2(input: &String) -> usize {
     let m: Map = input.parse().expect("failed parsing input");
     m.ghost_steps()

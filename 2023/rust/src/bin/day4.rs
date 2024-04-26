@@ -1,3 +1,7 @@
+//! The gondola lifts us up to Island Island, another island in the sky. Now, we must make our way to a normal
+//! island on a lake on Island Island. We need a boat to get there, and an elf at the gondola platform will
+//! let us borrow theirs if we help them figure out what they won from their mountain of scratch cards.
+
 fn main() {
     let input = aoc23::get_or_create_input(4);
     let cards: Vec<(&str, &str)> = input.
@@ -9,6 +13,11 @@ fn main() {
     println!("part 2 {}", part2(cards.clone()));
 }
 
+/// Each scratch cards has a list of winning numbers and a list of numbers we have. First match between the
+/// 2 lists is 1 point, subsequent matches double the points.
+///
+/// # Output
+/// Outputs the sum of the points of all cards
 fn part1(cards: Vec<(&str, &str)>) -> u32 {
     let mut sum: u32 = 0;
 
@@ -33,6 +42,12 @@ fn compute_matches(a: &str, b: &str) -> u32 {
     matches
 }
 
+/// Turns out the actual winning instructions were on the back of the cards and are weird and obtuse.
+/// You win more cards based on how many matches you have on the cards, e.g. if card 10 had 5 matches, you
+/// win 1 copy of each card: 11, 12, 13, 14, 15. The same rule applies for every copy
+///
+/// # Output
+/// Since each card only wins more cards, output is the total number of cards we have after calculating all wins.
 fn part2(cards: Vec<(&str, &str)>) -> u32 {
     let mut card_counts = vec![1; cards.len()];
     for i in 1..=cards.len() {

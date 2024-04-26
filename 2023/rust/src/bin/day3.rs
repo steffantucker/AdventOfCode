@@ -1,4 +1,7 @@
-use std::{collections::HashMap, fs};
+//! We're led to a gondola that will take us up to the water source for the snow, but surprise! It's broken.
+//! An elf engineer is trying to fix it, and gives us the schematics to help out.
+
+use std::{collections::HashMap};
 
 struct Grid {
     grid: Vec<Vec<char>>,
@@ -149,6 +152,11 @@ fn main() {
     println!("part 2 {}", part2(input));
 }
 
+/// The schematic shows part numbers, and other symbols (`.` are neither). Part numbers are numbers that are
+/// adjacent (including diagonals) to a symbol.
+///
+/// # Output
+/// Output is the sum of all part numbers.
 fn part1(input: String) -> u32 {
     let schematic: Grid = Grid::new(input);
     let mut sum = 0;
@@ -178,6 +186,12 @@ fn part1(input: String) -> u32 {
     sum
 }
 
+/// We fixed the gondola, but now one of the gears has the wrong ratio and the gondola is barely moving.
+/// A gear on the schematic is a `*` symbol with 2 adjacent (even diagonally) part numbers. The ratio is,
+/// paradoxically, the product of the part numbers.
+///
+/// # Output
+/// Returns the sum of all gear ratios.
 fn part2(input: String) -> u32 {
     let schematic = Grid::new(input);
     schematic.find_gears()

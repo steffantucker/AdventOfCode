@@ -1,3 +1,8 @@
+//! After the ferry ride, turns out there's no sand where the sand is supposed to be. The sand comes from
+//! another island in the sky, the aptly-named Desert Island. Luckily, a local boat race is offering and all-expense
+//! paid trip to Desert Island. The boats are toys though, and you power them by holding a button to increase the
+//! acceleration of the boat, and must win by going the furthest by a given time.
+
 use itertools::Itertools;
 
 fn main() {
@@ -16,6 +21,10 @@ fn get_nums(v: &str) -> Vec<u64> {
         .collect()
 }
 
+/// There are multiple time-values you can hold the button and win the race.
+///
+/// # Output
+/// The margin-of-error for our calculations is the product of the number of time-values for each race.
 fn part1(input: &String) -> u64 {
     let mut lines = input.lines();
     let times = get_nums(lines.next().unwrap());
@@ -31,6 +40,11 @@ fn line_to_number(l: &str) -> u64 {
     l.split_once(":").unwrap().1.split(" ").join("").parse::<u64>().expect("not a number??")
 }
 
+/// Oops, we've once again misread our input. Turns out there's only 1 race and not multiple, our paper just
+/// has bad kerning.
+///
+/// # Output
+/// Output is still the number of time-values we can use to win, but now just for the 1 race.
 fn part2(input: &String) -> u64 {
     let mut lines = input.lines();
     let time = line_to_number(lines.next().unwrap());

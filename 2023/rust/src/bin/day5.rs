@@ -1,3 +1,8 @@
+//! We make our way to the island on Island Island, where the gardner there tells us that Island Island
+//! is the water source for the snow, but there's no more sand to filter the water. While waiting for the
+//! ferry to find out why there's no sand, we have to help with the gardner's food production problem.
+//! The Island Island almanac is a list of seeds, and various condition maps that relate to each other.
+
 use itertools::Itertools;
 use regex::Regex;
 use std::collections::HashMap;
@@ -193,6 +198,11 @@ impl SeedsAndMap {
 }
 type Maps = HashMap<String, XtoYMap>;
 
+/// Using the almanac, we can find the optimal location for each seed.
+///
+/// # Output
+/// Outputs the lowest location number for the given seeds.
+
 fn part1(sm: &SeedsAndMap) -> u64 {
     /*for (k, v) in &maps {
         println!("{}\n{}", k, v);
@@ -208,6 +218,10 @@ fn part1(sm: &SeedsAndMap) -> u64 {
     lowest_location
 }
 
+/// Turns out the seeds list is actually a list of `number range` pairs and not individual seeds.
+///
+/// # Outputs
+/// Outputs the lowest location again, but using `number range` pairs for the seeds now.
 fn part2(input: &String) -> u64 {
     let mut lines = input.lines();
     // collect seed ranges

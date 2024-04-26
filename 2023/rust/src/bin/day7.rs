@@ -1,3 +1,8 @@
+//! Our all-expense-paid trip to Desert Island is a 5 minute airship ride. We ride some camels with an
+//! elf to Desert Island's problem (borked machines), and play a game of Camel Cards along the way. Instead of cards, we're
+//! given a list of poker hands and antes and calculate the total winnings. Total winnings is the sum
+//! of a hands score, which is the hand's ante times the hand's rank (after ordering the hands from best to worst).
+
 use std::cmp::Ordering;
 use std::fmt::{Display, Formatter};
 use itertools::Itertools;
@@ -177,6 +182,8 @@ impl PartialOrd for Hand {
     }
 }
 
+/// Part 1 we want to know the total winnings.
+/// Part 2 we want to know the total winnings, but using Jacks as wild (and worth the least).
 fn solution(input: &String, wilds: bool) -> usize {
     let mut hands: Vec<Hand> = Vec::new();
     for l in input.lines() {

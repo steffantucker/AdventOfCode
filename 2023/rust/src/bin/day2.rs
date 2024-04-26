@@ -1,3 +1,4 @@
+//! After landing on a snow-less Snow Island in the sky, and elf challenges us to a game of cubes in a bag.
 use std::{cmp, collections::HashMap};
 
 fn main() {
@@ -6,6 +7,11 @@ fn main() {
     println!("part 2 {}", part2(input.clone()))
 }
 
+/// We're given a list of games played, and asked if there are only 13 green, 12 red, and 14 blue cubes in the bag,
+/// how many of the games from the list could have been played with that bag.
+///
+/// # Output
+/// Sum of the IDs of games that are possible to have been played with the given bag.
 fn part1(input: String) -> u32 {
     let green_max = 13;
     let red_max = 12;
@@ -20,6 +26,11 @@ fn part1(input: String) -> u32 {
     .fold(0, |acc, game| acc + game["id"])
 }
 
+/// Using the same list of games played, the elf asks us what the minimum of each colored cube is that could have
+/// been used to play each game.
+///
+/// # Output
+/// The `"power"` of a game is `(# red) * (# blue) * (# green)`, and the output is the sum of all powers of the games on the list.
 fn part2(input: String) -> u32 {
     input
     .lines()

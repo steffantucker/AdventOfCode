@@ -1,3 +1,7 @@
+//! We arrive at an oasis and can see an island made of metal in the sky, that's probably where the parts
+//! Desert Island needs are from. There's a hang glider here at the oasis, and we can take some environmental
+//! readings using our Oasis And Sand Instability Sensor. Each line of data is the history for some value.
+
 use itertools::Itertools;
 
 fn main() {
@@ -6,6 +10,10 @@ fn main() {
     println!("part 2: {}", part2(&input));
 }
 
+/// Using the history, we can predict the next value for the ... value.
+///
+/// # Output
+/// Sum of all next values for the values.
 fn part1(input: &String) -> isize {
     let lines = input.lines();
     let mut sum = 0;
@@ -15,6 +23,10 @@ fn part1(input: &String) -> isize {
     sum
 }
 
+/// If we can extrapolate the future, why not the past?
+///
+/// # Output
+/// Sum of all previous values.
 fn part2(input: &String) -> isize {
     let lines = input.lines();
     let mut sum = 0;

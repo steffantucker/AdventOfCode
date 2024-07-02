@@ -7,7 +7,7 @@ import (
 	"slices"
 	"strings"
 
-	"github.com/steffantucker/AdventOfCode/2022/utils"
+	"github.com/steffantucker/AdventOfCode/2022/go/utils"
 )
 
 func Run() {

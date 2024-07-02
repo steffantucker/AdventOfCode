@@ -3,7 +3,7 @@ package day8
 import (
 	"fmt"
 
-	"github.com/steffantucker/AdventOfCode/2022/utils"
+	"github.com/steffantucker/AdventOfCode/2022/go/utils"
 )
 
 type Key struct {

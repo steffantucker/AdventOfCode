@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	"github.com/steffantucker/AdventofCode2021/helpers"
-	"github.com/steffantucker/AdventofCode2021/submarine"
+	"github.com/steffantucker/AdventOfCode/2021/go/helpers"
+	"github.com/steffantucker/AdventOfCode/2021/go/submarine"
 )
 
 func main() {

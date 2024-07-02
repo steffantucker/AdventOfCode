@@ -5,7 +5,7 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/steffantucker/AdventofCode2021/helpers"
+	"github.com/steffantucker/AdventOfCode/2021/go/helpers"
 )
 
 type bingoBoard struct {

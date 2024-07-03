@@ -26,7 +26,7 @@ func GetInputFile(year, day int) (string, error) {
 		if err != nil {
 			return "", err
 		}
-	} else if err != nil {
+	} else {
 		return "", err
 	}
 
@@ -59,6 +59,16 @@ func GetInput(year, day int) (string, error) {
 	return string(data), nil
 }
 
+// GetStringList returns an array with the input
+// seperated on newlines.
+//
+// input:
+// this
+// is
+// input
+//
+// returns:
+// ["this", "is", "input"]
 func GetStringList(year, day int) []string {
 	file, err := GetInput(year, day)
 	if err != nil {
@@ -67,6 +77,16 @@ func GetStringList(year, day int) []string {
 	return strings.Split(strings.Trim(file, "\n "), "\n")
 }
 
+// GetParagraphs returns an array with the input
+// split on double new lines.
+//
+// input:
+// this is input paragraph one
+//
+// this is input paragraph two
+//
+// returns:
+// ["this is input paragraph one", "this is input paragraph two"]
 func GetParagraphs(year, day int) []string {
 	file, err := GetInput(year, day)
 	if err != nil {

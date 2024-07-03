@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/steffantucker/AdventOfCode/2022/go/utils"
+	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 
 var assumedScoreMap = map[string]int{

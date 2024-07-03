@@ -5,7 +5,7 @@ import (
 	"regexp"
 	"strconv"
 
-	"github.com/steffantucker/AdventOfCode/2022/go/utils"
+	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 
 func Run() {

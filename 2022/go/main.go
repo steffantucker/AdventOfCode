@@ -19,7 +19,7 @@ import (
 	"github.com/steffantucker/AdventOfCode/2022/go/day7"
 	"github.com/steffantucker/AdventOfCode/2022/go/day8"
 	"github.com/steffantucker/AdventOfCode/2022/go/day9"
-	"github.com/steffantucker/AdventOfCode/2022/go/utils"
+	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 
 func main() {

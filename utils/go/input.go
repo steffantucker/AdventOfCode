@@ -74,7 +74,7 @@ func GetStringList(year, day int) []string {
 	if err != nil {
 		log.Fatalf("Failed getting file %#v\n", err)
 	}
-	return strings.Split(strings.Trim(file, "\n "), "\n")
+	return strings.Split(strings.TrimSpace(file), "\n")
 }
 
 // GetParagraphs returns an array with the input

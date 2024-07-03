@@ -7,6 +7,9 @@ import (
 	"os"
 
 	"github.com/steffantucker/AdventOfCode/2015/go/day1"
+	"github.com/steffantucker/AdventOfCode/2015/go/day2"
+	"github.com/steffantucker/AdventOfCode/2015/go/day3"
+	"github.com/steffantucker/AdventOfCode/2015/go/day4"
 	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 
@@ -15,9 +18,9 @@ func main() {
 	fmt.Println(wd)
 	dayFuncs := []func(){
 		day1.Run,
-		// day2.Run,
-		// day3.Run,
-		// day4.Run,
+		day2.Run,
+		day3.Run,
+		day4.Run,
 		// day5.Run,
 		// day6.Run,
 		// day7.Run,

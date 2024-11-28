@@ -1,9 +1,0 @@
-target
-Cargo.lock
-inputs/
-input
-.idea
-debug/
-target/
-**/*.rs.bk
-*.pdb

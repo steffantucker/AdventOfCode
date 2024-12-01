@@ -6,9 +6,9 @@ import (
 	"log"
 	"os"
 
-	"github.com/steffantucker/AdventOfCode/2023/day1"
-	"github.com/steffantucker/AdventOfCode/2023/day2"
-	"github.com/steffantucker/AdventOfCode/2023/day3"
+	"github.com/steffantucker/AdventOfCode/2023/go/day1"
+	"github.com/steffantucker/AdventOfCode/2023/go/day2"
+	"github.com/steffantucker/AdventOfCode/2023/go/day3"
 	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 

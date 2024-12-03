@@ -7,18 +7,18 @@ import (
 )
 
 func Run() {
-	pairs := utils.GetStringList(2024, 1)
-	p1 := part1(pairs)
+	input := utils.GetStringList(2024, 1)
+	p1 := part1(input)
 	fmt.Printf("Part 1: %v\n", p1)
-	p2 := part2(pairs)
+	p2 := part2(input)
 	fmt.Printf("Part 2: %v\n", p2)
 }
 
-func part1(pairs []string) (overlaps int) {
+func part1(input []string) (result int) {
 
 	return
 }
 
-func part2(pairs []string) (overlaps int) {
+func part2(input []string) (result int) {
 	return
 }

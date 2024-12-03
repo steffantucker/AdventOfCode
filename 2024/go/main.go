@@ -8,6 +8,7 @@ import (
 
 	"github.com/steffantucker/AdventOfCode/2024/go/day1"
 	"github.com/steffantucker/AdventOfCode/2024/go/day2"
+	"github.com/steffantucker/AdventOfCode/2024/go/day3"
 	utils "github.com/steffantucker/AdventOfCode/utils/go"
 )
 
@@ -17,7 +18,7 @@ func main() {
 	dayFuncs := []func(){
 		day1.Run,
 		day2.Run,
-		// day3.Run,
+		day3.Run,
 		// day4.Run,
 		// day5.Run,
 		// day6.Run,

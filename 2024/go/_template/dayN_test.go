@@ -5,24 +5,24 @@ import (
 	"testing"
 )
 
-var pairs = []string{}
+var input = []string{}
 
 func Test_part1(t *testing.T) {
 	expected := 2
-	max := part1(pairs)
+	result := part1(input)
 
-	if max != expected {
-		fmt.Printf("Expected %v got %v\n", expected, max)
+	if result != expected {
+		fmt.Printf("Expected %v got %v\n", expected, result)
 		t.FailNow()
 	}
 }
 
 func Test_part2(t *testing.T) {
 	expected := 4
-	max := part2(pairs)
+	result := part2(input)
 
-	if max != expected {
-		fmt.Printf("Expected %v got %v\n", expected, max)
+	if result != expected {
+		fmt.Printf("Expected %v got %v\n", expected, result)
 		t.FailNow()
 	}
 }

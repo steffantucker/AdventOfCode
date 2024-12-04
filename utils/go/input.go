@@ -59,6 +59,14 @@ func GetInput(year, day int) (string, error) {
 	return string(data), nil
 }
 
+func GetString(year, day int) string {
+	input, err := GetInput(year, day)
+	if err != nil {
+		log.Fatalf("Failed getting file %#v\n", err)
+	}
+	return input
+}
+
 // GetStringList returns an array with the input
 // seperated on newlines.
 //

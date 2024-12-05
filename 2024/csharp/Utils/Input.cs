@@ -6,7 +6,7 @@ public class Input
     public static string GetInput(string day)
     {
         string appDataFolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
-        return File.ReadAllText(Path.Combine(appDataFolder, "AoC2024", "day"+day));
+        return File.ReadAllText(Path.Combine(appDataFolder, "AoC", "2024", "day"+day));
     }
 
     public static int[][] GetMatrixInput(string day)

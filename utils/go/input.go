@@ -7,6 +7,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	"path"
+	"path/filepath"
 	"strconv"
 	"strings"
 )
@@ -16,13 +18,21 @@ func GetInputFile(year, day int) (string, error) {
 	dayString := fmt.Sprint(day)
 	yearString := fmt.Sprint(year)
 
-	fileName := "day" + dayString + "/input"
+	fileName := fmt.Sprintf("day%02d", day)
+	appData, err := os.UserConfigDir()
+	if err != nil {
+		log.Fatalf("AppData folder not found: %v", err)
+	}
+	filePath := path.Join(appData, "AoC", yearString, fileName)
 	var file *os.File
-	_, err := os.Stat(fileName)
+	_, err = os.Stat(filePath)
 	if err == nil {
-		return fileName, nil
+		return filePath, nil
 	} else if errors.Is(err, os.ErrNotExist) {
-		file, err = os.Create(fileName)
+		if err := os.MkdirAll(filepath.Dir(filePath), os.ModeDir); err != nil {
+			return "", err
+		}
+		file, err = os.Create(filePath)
 		if err != nil {
 			return "", err
 		}
@@ -35,7 +45,11 @@ func GetInputFile(year, day int) (string, error) {
 	if err != nil {
 		return "", err
 	}
-	req.Header.Set("cookie", "session="+sessionKey)
+	cookie := http.Cookie{
+		Name:  "session",
+		Value: sessionKey,
+	}
+	req.AddCookie(&cookie)
 	resp, err := http.DefaultClient.Do(req)
 	if err != nil {
 		return "", err
@@ -47,7 +61,7 @@ func GetInputFile(year, day int) (string, error) {
 		return "", err
 	}
 
-	return fileName, nil
+	return filePath, nil
 }
 
 func GetInput(year, day int) (string, error) {

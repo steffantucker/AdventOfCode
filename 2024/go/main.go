@@ -50,10 +50,10 @@ func main() {
 	flag.Parse()
 
 	if *input {
-		fmt.Print("input flag")
+		fmt.Printf("Getting input for day %d", dayToRun)
 		_, err := utils.GetInputFile(2024, *dayToRun)
 		if err != nil {
-			log.Fatalf("Can't get input %e", err)
+			log.Fatalf("Can't get input: %e", err)
 		}
 		return
 	}

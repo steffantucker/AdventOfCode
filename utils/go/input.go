@@ -9,6 +9,7 @@ import (
 	"os"
 	"path"
 	"path/filepath"
+	"slices"
 	"strconv"
 	"strings"
 )
@@ -114,7 +115,16 @@ func GetParagraphs(year, day int) []string {
 	if err != nil {
 		log.Fatalf("Failed getting file %#v\n", err)
 	}
-	return strings.Split(file, "\n\n")
+	paras := strings.Split(file, "\n\n")
+	for i, p := range paras {
+		if len(p) == 0 {
+			paras = slices.Delete(paras, i, i+1)
+		} else {
+			paras[i] = strings.TrimSpace(p)
+		}
+
+	}
+	return paras
 }
 
 func GetGroupedNumberList(year, day int) [][]int {

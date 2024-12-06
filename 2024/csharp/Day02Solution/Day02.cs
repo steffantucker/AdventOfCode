@@ -1,10 +1,12 @@
-﻿namespace Day02;
+﻿using Utils;
 
-public class Solutions
+namespace Day02;
+
+public class Day02
 {
     static void Main(string[] args)
     {
-        int[][] input = Utils.Input.GetMatrixInput("02");
+        int[][] input = Input.GetNumberMatrix("02", " ");
         int part1 = input.Where(IsSafe).Count();
         Console.WriteLine($"Part 1: {part1}");
         int part2 = input.Where(IsPermissivelySafe).Count();

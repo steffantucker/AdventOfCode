@@ -9,13 +9,23 @@ public class Input
         return File.ReadAllText(Path.Combine(appDataFolder, "AoC", "2024", "day"+day));
     }
 
-    public static int[][] GetMatrixInput(string day)
+    public static int[][] GetNumberMatrix(string day, string sep)
     {
         string input = GetInput(day);
         return input.Split(["\r\n", "\n"], StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
             .Select(x => x.Trim()
-                .Split(" ")
+                .Split(sep, StringSplitOptions.RemoveEmptyEntries)
                 .Select(int.Parse)
+                .ToArray())
+            .ToArray();
+    }
+
+    public static string[][] GetStringMatrix(string day, string sep)
+    {
+        string input = GetInput(day);
+        return input.Split(["\r\n", "\n"], StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
+            .Select(x => x.Trim()
+                .Split(sep, StringSplitOptions.RemoveEmptyEntries)
                 .ToArray())
             .ToArray();
     }

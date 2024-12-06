@@ -20,13 +20,11 @@ public class Input
             .ToArray();
     }
 
-    public static string[][] GetStringMatrix(string day, string sep)
+    public static string[] GetStrings(string day, string sep)
     {
         string input = GetInput(day);
         return input.Split(["\r\n", "\n"], StringSplitOptions.TrimEntries | StringSplitOptions.RemoveEmptyEntries)
-            .Select(x => x.Trim()
-                .Split(sep, StringSplitOptions.RemoveEmptyEntries)
-                .ToArray())
+            .Select(x => x.Trim())
             .ToArray();
     }
 }

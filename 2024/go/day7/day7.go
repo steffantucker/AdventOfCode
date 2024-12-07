@@ -30,15 +30,13 @@ func Run() {
 	p1 := solve(equations, []string{"*", "+"})
 	fmt.Printf("Part 1: %v\n", p1)
 	p2 := solve(equations, []string{"|", "*", "+"})
-	// low   73050804055819
-	// wrong 636198093037897
 	fmt.Printf("Part 2: %v\n", p2)
 }
 
 func parse(input []string) (equations []Calibration) {
 	for _, line := range input {
 		if len(line) == 0 {
-			break
+			continue
 		}
 		parts := strings.Split(line, ": ")
 		want := utils.MustAtoi(parts[0])
@@ -55,8 +53,6 @@ func solve(equations []Calibration, symbols []string) (result int) {
 	for _, eq := range equations {
 		if isSolvable(eq.Want, eq.Haves[1:], eq.Haves[0], symbols) {
 			result += eq.Want
-		} else {
-			fmt.Printf("%d: %d\n", eq.Want, eq.Haves)
 		}
 	}
 	return
@@ -76,7 +72,7 @@ func isSolvable(want int, haves []int, subtotal int, symbols []string) bool {
 		if itertotal == want && len(haves) == 1 {
 			return true
 		}
-		if len(haves) > 1 && itertotal < want {
+		if len(haves) > 1 {
 			if found := isSolvable(want, haves[1:], itertotal, symbols); found {
 				return true
 			}

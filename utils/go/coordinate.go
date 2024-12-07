@@ -17,6 +17,7 @@ const (
 	DOWNLEFT
 	DOWN
 	DOWNRIGHT
+	CENTER
 )
 
 var DirectionCoords = map[Direction]Coordinate{

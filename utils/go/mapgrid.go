@@ -14,6 +14,19 @@ type Rectangle struct {
 	TopLeft, BottomRight Coordinate
 }
 
+func EmptyRectangle() Rectangle {
+	return Rectangle{
+		TopLeft:     NewCoordinate(0, 0),
+		BottomRight: NewCoordinate(0, 0),
+	}
+}
+
+func (r Rectangle) IsInRectangle(c Coordinate) bool {
+	x := c.X >= r.TopLeft.X && c.X <= r.BottomRight.X
+	y := c.Y >= r.TopLeft.Y && c.Y <= r.BottomRight.Y
+	return x && y
+}
+
 func NewMapGrid() MapGrid {
 	return NewMapGridWithDefault(" ")
 }
@@ -97,6 +110,13 @@ func (m MapGrid) At(c Coordinate) string {
 
 func (m MapGrid) GetBounds() (bounds Rectangle) {
 	return m.Bounds
+}
+
+func (m MapGrid) IsInBounds(c Coordinate) bool {
+	x := c.X >= m.Bounds.TopLeft.X && c.X <= m.Bounds.BottomRight.X
+	y := c.Y >= m.Bounds.TopLeft.Y && c.Y <= m.Bounds.BottomRight.Y
+
+	return x && y
 }
 
 func (m MapGrid) String() string {

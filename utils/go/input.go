@@ -79,7 +79,7 @@ func GetString(year, day int) string {
 	if err != nil {
 		log.Fatalf("Failed getting file %#v\n", err)
 	}
-	return input
+	return strings.TrimSpace(input)
 }
 
 // GetStringList returns an array with the input

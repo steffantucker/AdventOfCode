@@ -20,7 +20,7 @@ const (
 	CENTER
 )
 
-var DirectionCoords = map[Direction]Coordinate{
+var OctilinearCoords = map[Direction]Coordinate{
 	UPLEFT:    {X: -1, Y: -1},
 	UP:        {X: 0, Y: -1},
 	UPRIGHT:   {X: 1, Y: -1},
@@ -29,6 +29,13 @@ var DirectionCoords = map[Direction]Coordinate{
 	DOWNLEFT:  {X: -1, Y: 1},
 	DOWN:      {X: 0, Y: 1},
 	DOWNRIGHT: {X: 1, Y: 1},
+}
+
+var OrthogonalCoords = map[Direction]Coordinate{
+	UP:    {X: 0, Y: -1},
+	RIGHT: {X: 1, Y: 0},
+	DOWN:  {X: 0, Y: 1},
+	LEFT:  {X: -1, Y: 0},
 }
 
 var ReverseDirections = map[Direction]Direction{
@@ -55,7 +62,7 @@ func Sum(a Coordinate, b Coordinate) Coordinate {
 }
 
 func SumDirection(a Coordinate, d Direction) Coordinate {
-	return Sum(a, DirectionCoords[d])
+	return Sum(a, OctilinearCoords[d])
 }
 
 func c(x, y int) Coordinate {

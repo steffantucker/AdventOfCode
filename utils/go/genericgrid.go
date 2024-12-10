@@ -90,3 +90,18 @@ func (m *GenericMapGrid[V]) FindFuncAll(how func(V) bool) []Coordinate {
 func (m *GenericMapGrid[V]) IsInBounds(c Coordinate) bool {
 	return m.Bounds.IsInRectangle(c)
 }
+
+func (m *GenericMapGrid[V]) FindAround(c Coordinate, what V, ortho bool) map[Direction]Coordinate {
+	directionMap := OctilinearCoords
+	if ortho {
+		directionMap = OrthogonalCoords
+	}
+	directions := make(map[Direction]Coordinate)
+	for direction, coord := range directionMap {
+		look := Sum(c, coord)
+		if val, ok := m.Grid[look]; ok && val == what {
+			directions[direction] = look
+		}
+	}
+	return directions
+}

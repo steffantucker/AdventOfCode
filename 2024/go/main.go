@@ -7,6 +7,7 @@ import (
 	"os"
 
 	"github.com/steffantucker/AdventOfCode/2024/go/day1"
+	"github.com/steffantucker/AdventOfCode/2024/go/day10"
 	"github.com/steffantucker/AdventOfCode/2024/go/day2"
 	"github.com/steffantucker/AdventOfCode/2024/go/day3"
 	"github.com/steffantucker/AdventOfCode/2024/go/day4"
@@ -30,7 +31,7 @@ func main() {
 		day7.Run,
 		// day8.Run,
 		day9.Run,
-		// day10.Run,
+		day10.Run,
 		// day11.Run,
 		// day12.Run,
 		// day13.Run,

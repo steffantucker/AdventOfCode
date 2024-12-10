@@ -45,7 +45,7 @@ func (p p1) IsInDirection(what string, c utils.Coordinate, dir utils.Direction) 
 }
 
 func (p p1) HasXMAS(x utils.Coordinate) (count int) {
-	ms := p.Grid.FindAround(x, "M")
+	ms := p.Grid.FindAround(x, "M", false)
 	for dir, mcoord := range ms {
 		if p.IsInDirection("A", mcoord, dir) {
 			acoord := utils.SumDirection(mcoord, dir)
@@ -76,7 +76,7 @@ func newp2(input string) p2 {
 
 func (p p2) CountXMASES() (count int) {
 	for _, a := range p.As {
-		mdirs := p.Grid.FindAround(a, "M")
+		mdirs := p.Grid.FindAround(a, "M", false)
 		delete(mdirs, utils.UP)
 		delete(mdirs, utils.DOWN)
 		delete(mdirs, utils.LEFT)

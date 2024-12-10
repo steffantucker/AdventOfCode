@@ -73,9 +73,13 @@ func (m MapGrid) FindAll(what string) []Coordinate {
 	return m.find(what, true)
 }
 
-func (m MapGrid) FindAround(c Coordinate, what string) map[Direction]Coordinate {
+func (m MapGrid) FindAround(c Coordinate, what string, ortho bool) map[Direction]Coordinate {
+	directionMap := OctilinearCoords
+	if ortho {
+		directionMap = OrthogonalCoords
+	}
 	directions := make(map[Direction]Coordinate)
-	for direction, coord := range DirectionCoords {
+	for direction, coord := range directionMap {
 		look := Sum(c, coord)
 		if val, ok := m.Grid[look]; ok && val == what {
 			directions[direction] = look
